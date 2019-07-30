@@ -24,6 +24,7 @@ class SearchBar extends Component{
                         type="text" 
                         className="field"
                         value={ this.state.searchTerm }
+                        placeholder="Search for images about..."
                         onChange={(e) => 
                             this.setState({ searchTerm: e.target.value })}
                     />

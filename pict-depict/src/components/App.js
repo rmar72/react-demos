@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import unsplash from '../api/unsplash-config';
 import SearchBar from './SearchBar';
 import ImageList from './ImageList';
+import './App.css'
 
 class App extends Component {
 
     state = {
-        images: []
+        images: [],
+        image_term: ''
     };
+
+    async componentDidMount(){
+        this.onSearchSubmit('welcome');
+    }
 
     // syntatic sugar for binding cb, use throughout app safely relying on 'this'
     onSearchSubmit = async (term) => {
@@ -15,7 +21,7 @@ class App extends Component {
             params: { query: term }
         });
 
-        this.setState({ images: response.data.results });
+        this.setState({ images: response.data.results, image_term: term });
     }
 
     render(){
@@ -33,7 +39,7 @@ class App extends Component {
         return(
             <div className="ui container" style={{ marginTop: '15px' }}>
                 <SearchBar onSubmit={this.onSearchSubmit} />
-                Found: { this.state.images.length } IMages
+                <p>Found: { this.state.images.length } images of { this.state.image_term }</p>
                 <ImageList imgs={ this.state.images } />
             </div>
         )

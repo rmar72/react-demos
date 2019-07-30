@@ -1,0 +1,9 @@
+html, body{
+    padding: 0px;
+    margin: 0px;
+    background-image: linear-gradient(to top left, grey, white);
+    height: 130vh;
+}
+#root{ 
+    padding-top: 15px;
+}
