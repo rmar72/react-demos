@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import "./App.css";
 import youtube from '../apis/youtube.js';
 import SearchBar from './SearchBar';
-import VideoList from './VideoList'
+import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 
 export default class App extends Component {
@@ -12,7 +13,7 @@ export default class App extends Component {
     }
 
     componentDidMount(){
-        this.setState({ term: "123" })
+        this.onTermSubmit("Buildings 2019");
     }
 
     onTermSubmit = async (term) => {
@@ -22,24 +23,29 @@ export default class App extends Component {
             }
         });
 
-        this.setState({ videos: response.data.items })
+        this.setState({
+             videos: response.data.items,
+             selectedVideo: response.data.items[0]
+        });
     }
 
-    onVideoSelect = (video) => {
-        console.log("video: ", video)
-    }
+    onVideoSelect = (selectedVideo) =>
+        this.setState({ selectedVideo: selectedVideo });
 
     render(){
         return (
             <div className="app-container ui container">
-                <SearchBar 
+                <SearchBar
                     onTermSubmit={this.onTermSubmit}
+                    videosLength={this.state.videos.length}
                 />
-                I have { this.state.videos.length}
+                <VideoDetail video={this.state.selectedVideo} />
+
                 <VideoList 
                     videos={this.state.videos} 
                     onVideoSelect={this.onVideoSelect} 
                 />
+                
             </div>
         )
     }

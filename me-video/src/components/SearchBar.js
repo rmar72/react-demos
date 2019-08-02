@@ -30,6 +30,7 @@ class SearchBar extends Component {
                             value={this.state.term}
                             onChange={this.inputChange}
                         />
+                        <p>Displaying {this.props.videosLength} results</p>
                     </div>
                 </form>
             </div>
