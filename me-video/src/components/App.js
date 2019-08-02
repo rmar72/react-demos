@@ -7,7 +7,8 @@ import VideoList from './VideoList'
 
 export default class App extends Component {
     state = {
-       videos: []
+       videos: [],
+       selectedVideo: {} 
     }
 
     componentDidMount(){
@@ -24,6 +25,10 @@ export default class App extends Component {
         this.setState({ videos: response.data.items })
     }
 
+    onVideoSelect = (video) => {
+        console.log("video: ", video)
+    }
+
     render(){
         return (
             <div className="app-container ui container">
@@ -31,7 +36,10 @@ export default class App extends Component {
                     onTermSubmit={this.onTermSubmit}
                 />
                 I have { this.state.videos.length}
-                <VideoList videos={this.state.videos} />
+                <VideoList 
+                    videos={this.state.videos} 
+                    onVideoSelect={this.onVideoSelect} 
+                />
             </div>
         )
     }
