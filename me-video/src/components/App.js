@@ -5,7 +5,6 @@ import SearchBar from './SearchBar';
 import VideoList from './VideoList'
 
 
-
 export default class App extends Component {
     state = {
        videos: []
