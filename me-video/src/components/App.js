@@ -3,7 +3,7 @@ import "./App.css";
 import youtube from '../apis/youtube.js';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
+import VideoPlayer from './VideoPlayer';
 
 
 export default class App extends Component {
@@ -34,19 +34,25 @@ export default class App extends Component {
 
     render(){
         return (
-            <div className="app-container ui container">
-                <SearchBar
-                    onTermSubmit={this.onTermSubmit}
-                    videosLength={this.state.videos.length}
-                />
-                <VideoDetail video={this.state.selectedVideo} />
+            <main>
+                <div className="background-top-theme"></div>
+                <div className="app-container ui container">
+                    <SearchBar
+                        onTermSubmit={this.onTermSubmit}
+                        videosLength={this.state.videos.length}
+                    />
 
-                <VideoList 
-                    videos={this.state.videos} 
-                    onVideoSelect={this.onVideoSelect} 
-                />
-                
-            </div>
+                    <div className="videos-container">
+                        <VideoPlayer video={this.state.selectedVideo} />
+
+                        <VideoList
+                            videos={this.state.videos} 
+                            onVideoSelect={this.onVideoSelect}
+                        />
+                    </div>
+                </div>
+            </main>
+            
         )
     }
 }

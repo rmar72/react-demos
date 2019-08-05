@@ -1,9 +1,17 @@
-.video-item { 
-    display: flex !important;
-    align-items: center !important;
+.video-item {
     cursor: pointer;
+    text-align: center;
+    margin: 12px 0;
 }
 
 .video-item img {
-    max-width: 380px;
+    width: 280px;
+    display: block;
+}
+
+.header-title{
+    color: white !important;
+    font-style: oblique !important;
+    max-width: 280px;
+    margin: 0 auto;
 }

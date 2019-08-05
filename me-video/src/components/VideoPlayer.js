@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoDetail = ({video}) => {
+const VideoPlayer = ({video}) => {
     if(JSON.stringify(video) === '{}'){
         return <div>Loading...</div>;
     }
@@ -8,7 +8,7 @@ const VideoDetail = ({video}) => {
     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
     return(
-        <div>
+        <div className="video-player">
             <div className="ui embed">
             <iframe src={videoSrc} title="youtube video" />
             </div>
@@ -20,4 +20,4 @@ const VideoDetail = ({video}) => {
     
 }
 
-export default VideoDetail;
+export default VideoPlayer;
