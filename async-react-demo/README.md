@@ -1,5 +1,5 @@
-# react using react-async npm package to showcase 3 different ways to asynchronously fetch data and easily render a list of users
-- React, react-async
+# React App showcasing 3 different ways to asynchronously fetch data and seamlessly render a list of users with react-async npm package
+- React, [react-async](https://www.npmjs.com/package/react-async)
 
 
 
