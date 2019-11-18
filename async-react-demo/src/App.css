@@ -1,0 +1,32 @@
+/* - grid 1, main one - */
+.App {
+  display: grid; 
+  grid-template-columns: 1fr;
+  justify-content: space-evenly;
+}
+
+/* - grid 2 - */
+
+.myTitle{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+h2{
+  grid-column-start: 2;
+  text-align: center;
+}
+
+/* - grid 3 - */
+.myColumnContainer{
+  display: grid;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.myColumnPosition{
+  grid-column-start: 4;
+}
+
+
+
